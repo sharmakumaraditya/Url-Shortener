@@ -40,7 +40,7 @@ users.post('/register', (req, res) => {
                 payload.password = hash
             })
             const token = jwt.sign(payload, process.env.SECRET_KEY, {
-                expiresIn: 1440
+                expiresIn: 7000
               });
 
             let mailTransporter = nodemailer.createTransport({ 
@@ -188,6 +188,32 @@ users.post('/login', (req, res) => {
   })
 
 
+  users.get('/delete', (req, res) => {
+    var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+  
+    User.findOne({
+      _id: decoded._id
+    })
+      .then(user => {
+        if (user) {
+            const email = user.email
+          User.findByIdAndRemove(user._id)
+          .then(user => {
+            res.json({status: email + ' has been successfully deleted'})
+        })
+        .catch(err => {
+            res.send('error: ' + err)
+        })
+        } else {
+          res.send('User does not exist')
+        }
+      })
+      .catch(err => {
+        res.send('error: ' + err)
+      })
+  })
+
+
 
 
   users.put('/forgot-password',(req,res)=>{
@@ -205,7 +231,7 @@ users.post('/login', (req, res) => {
             }
                 
                 const token = jwt.sign(payload, process.env.SECRET_KEY, {
-                    expiresIn: 3000
+                    expiresIn: 7000
                   });
 
                 let mailTransporter = nodemailer.createTransport({ 
@@ -308,6 +334,10 @@ if(req.body.resetLink){
     }
   
 })
+
+
+
+
 
 
 
