@@ -15,7 +15,7 @@ app.use(
     })
 )
 
-const mongoURI = 'mongodb://localhost:27017/link_short_mongo'
+const mongoURI = 'mongodb+srv://aditya1234:aditya1234@cluster0.nlxwh.mongodb.net/aditya-url-shortener-demo?retryWrites=true&w=majority'
 
 mongoose
     .connect(mongoURI, {useNewUrlParser: true})
