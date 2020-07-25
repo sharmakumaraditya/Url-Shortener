@@ -16,7 +16,7 @@ const ShortUrl = require('../models/shortUrl')
 users.use(cors())
 const mongoose = require('mongoose')
 process.env.SECRET_KEY = 'secret'
-process.env.CLIENT_URL = 'http://localhost:5000'
+process.env.CLIENT_URL = 'https://shorten-url-1.herokuapp.com'
 
 
 

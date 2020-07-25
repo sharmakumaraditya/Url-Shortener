@@ -16,7 +16,7 @@ const ShortUrl = require('../models/shortUrl')
 users.use(cors())
 const mongoose = require('mongoose')
 process.env.SECRET_KEY = 'secret'
-process.env.CLIENT_URL = 'http://localhost:5000'
+process.env.CLIENT_URL = 'https://shorten-url-1.herokuapp.com'
 
 
 
@@ -51,7 +51,7 @@ exports.forgot_password = (req, res) => {
                   subject : 'PASSWORD RESET LINK',
                   html : `
                       <h3> Click here to reset the password!</h3>
-                      <p><link>${process.env.CLIENT_URL}//users/resetpassword/${token}</p></link>
+                      <p><link>${process.env.CLIENT_URL}/users/resetpassword/${token}</p></link>
                   `
                 };
                 return user.updateOne({resetLink: token}, function(err,success) {

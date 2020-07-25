@@ -26,7 +26,7 @@ const {reset_password} = require("../controllers/resetPassword")
 const {url_history} = require("../controllers/urlHistory")
 const {short_url} = require("../controllers/shortenUrl")
 process.env.SECRET_KEY = 'secret'
-process.env.CLIENT_URL = 'http://localhost:5000'
+process.env.CLIENT_URL = 'https://shorten-url-1.herokuapp.com'
 
 
 users.post('/register', register);
