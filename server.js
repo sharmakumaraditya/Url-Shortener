@@ -5,7 +5,7 @@ var bodyParser = require("body-parser")
 var app = express()
 require('dotenv').config()
 var mongoose = require("mongoose")
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 5000
 
 app.unsubscribe(bodyParser.json())
 app.unsubscribe(cors())

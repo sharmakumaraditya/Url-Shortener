@@ -7,6 +7,10 @@
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "author": "Aditya Sharma",
   "license": "ISC",
   "dependencies": {
@@ -21,6 +25,10 @@
     "mongodb": "^3.1.6",
     "mongoose": "^5.2.15",
     "nodemailer": "^6.4.10",
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.3",
+    "shortid": "^2.2.15"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
